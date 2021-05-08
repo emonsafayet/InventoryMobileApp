@@ -2,6 +2,8 @@ package com.example.inventoryapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -20,7 +22,11 @@ public class MainActivity extends AppCompatActivity {
         WebSettings webSettings= webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://www.gmail.com/");
+        //webView.setWebViewClient(new WebViewClient());
+       // webView.loadUrl("http://192.168.1.3/#/login");
+        webView.getWebChromeClient("");
+
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.1.3/#/login"));
+        startActivity(browserIntent);
     }
 }
